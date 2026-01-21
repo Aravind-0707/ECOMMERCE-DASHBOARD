@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["ecommerce_data","us_state_long_lat_codes"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table ecommerce_data
+ref table DateTableTemplate_574f5673-20ed-4a64-85cf-9cd7961b8836
+ref table LocalDateTable_d55a8b0c-2bad-4422-962e-98ab1944e714
+ref table us_state_long_lat_codes
+ref table Calendar
+ref table LocalDateTable_49bd6962-7957-4b6a-a5d5-d913d2a39d18
+
+ref cultureInfo en-US
+

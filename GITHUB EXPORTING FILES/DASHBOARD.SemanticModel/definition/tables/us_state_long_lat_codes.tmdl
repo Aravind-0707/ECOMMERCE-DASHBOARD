@@ -1,0 +1,50 @@
+table us_state_long_lat_codes
+	lineageTag: 96996dad-ff3e-46fa-9756-0478c192f2a6
+
+	column state
+		dataType: string
+		lineageTag: cc11f958-08cd-4147-bea1-f8b0871fce43
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 7e378879-22c8-4eeb-8f7c-aeacd94a1361
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: c36dd4e5-41e5-45f7-8065-9c7f40576517
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column name
+		dataType: string
+		lineageTag: 2acf2b1a-34fa-4bd7-9f7b-82684ec1b876
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition us_state_long_lat_codes = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("ARUNANDU", "Ecommerce_database"),
+				    dbo_us_state_long_lat_codes = Source{[Schema="dbo",Item="us_state_long_lat_codes"]}[Data]
+				in
+				    dbo_us_state_long_lat_codes
+
+	annotation PBI_ResultType = Table
+

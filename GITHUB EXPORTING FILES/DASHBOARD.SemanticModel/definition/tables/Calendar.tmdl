@@ -1,0 +1,44 @@
+table Calendar
+	lineageTag: f10d92a4-a4b4-45f2-9032-f02a50f3d566
+
+	column Date
+		formatString: General Date
+		lineageTag: fc35cfe4-4615-4817-860c-1d86da848c34
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 1012fa59-ea20-4395-bc55-01a4acd09302
+			defaultHierarchy: LocalDateTable_49bd6962-7957-4b6a-a5d5-d913d2a39d18.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR = YEAR('Calendar'[Date])
+		formatString: 0
+		lineageTag: 77d5e784-0102-4dd2-a4a0-72397c809a66
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Calendar'[Date],"mmmm")
+		lineageTag: 62173123-de93-4e41-8087-2ac2a6014004
+		summarizeBy: none
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number' = MONTH('Calendar'[Date])
+		formatString: 0
+		lineageTag: f40cd8d2-8809-4d7e-aedd-5487f899e1ff
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source = CALENDAR(MIN(ecommerce_data[order_date]),MAX(ecommerce_data[order_date]))
+
+	annotation PBI_Id = 6c53fbc0c4704488b6a1fdebe233575e
+

@@ -1,0 +1,18 @@
+relationship 8b6f614e-1b28-447d-a6ae-707f06d6cd16
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ecommerce_data.ship_date
+	toColumn: LocalDateTable_d55a8b0c-2bad-4422-962e-98ab1944e714.Date
+
+relationship 5cc6efb6-a86b-9278-663d-7333668518d1
+	fromColumn: ecommerce_data.customer_state
+	toColumn: us_state_long_lat_codes.name
+
+relationship 1012fa59-ea20-4395-bc55-01a4acd09302
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_49bd6962-7957-4b6a-a5d5-d913d2a39d18.Date
+
+relationship 1fcc27b1-260d-dd58-9354-30195c810407
+	fromColumn: ecommerce_data.order_date
+	toColumn: Calendar.Date
+
